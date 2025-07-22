@@ -2,22 +2,22 @@ import { Link, Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="bg-white shadow-sm">
+    <div className="min-h-screen flex flex-col font-sans antialiased">
+      <header className="bg-gradient-to-r from-green-50 to-teal-100 shadow-md border-b border-gray-100">
         <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-heading font-bold text-primary">LearnHub</span>
+            <span className="text-3xl font-extrabold text-teal-700 tracking-tight">LearnHub</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-primary">Home</Link>
-            <Link to="/courses" className="text-gray-600 hover:text-primary">Courses</Link>
-            <Link to="/about" className="text-gray-600 hover:text-primary">About</Link>
-            <Link to="/contact" className="text-gray-600 hover:text-primary">Contact</Link>
+            <Link to="/" className="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-200">Home</Link>
+            <Link to="/courses" className="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-200">Courses</Link>
+            <Link to="/about" className="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-200">About</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-200">Contact</Link>
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link to="/dashboard" className="text-gray-600 hover:text-primary">My Dashboard</Link>
+            <Link to="/dashboard" className="text-gray-700 hover:text-teal-600 font-medium hidden md:block">My Dashboard</Link>
             <Link to="/login" className="btn-outline">Log In</Link>
             <Link to="/signup" className="btn-primary">Sign Up</Link>
           </div>

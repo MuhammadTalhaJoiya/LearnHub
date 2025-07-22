@@ -65,22 +65,22 @@ const testimonials = [
 
 function Home() {
   return (
-    <div>
+    <div className="font-sans antialiased">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary py-20 text-white">
+      <section className="bg-gradient-to-r from-teal-500 to-green-500 py-20 text-white shadow-lg">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Unlock Your Potential with Quality Education
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+              Unlock Your Potential with <span className="text-yellow-200">Quality Education</span>
             </h1>
-            <p className="text-xl mb-8 text-gray-100">
+            <p className="text-xl mb-8 text-teal-100 opacity-90 leading-relaxed">
               Learn from industry experts and advance your career with our comprehensive online courses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/courses" className="btn-primary text-lg">
+              <Link to="/courses" className="bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-md">
                 Explore Courses
               </Link>
-              <Link to="/signup" className="btn bg-white text-primary hover:bg-gray-100 text-lg">
+              <Link to="/signup" className="border border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition-all duration-300">
                 Sign Up Now
               </Link>
             </div>
@@ -89,9 +89,9 @@ function Home() {
       </section>
 
       {/* Featured Courses Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Featured Courses</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12 text-gray-800">Featured Courses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCourses.map(course => (
               <CourseCard key={course.id} {...course} />
@@ -101,24 +101,22 @@ function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16">
+      <section className="py-16 bg-green-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12 text-gray-800">What Our Students Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map(testimonial => (
-              <div key={testimonial.id} className="card p-6">
-                <div className="flex items-center mb-4">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-textMuted">{testimonial.role}</p>
-                  </div>
+              <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-green-100 flex flex-col items-center text-center">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name}
+                  className="w-20 h-20 rounded-full mb-4 border-4 border-green-300 shadow-md"
+                />
+                <div>
+                  <h4 className="font-bold text-xl mb-1 text-gray-900">{testimonial.name}</h4>
+                  <p className="text-green-600 text-sm mb-4">{testimonial.role}</p>
                 </div>
-                <p className="text-gray-600 italic">{testimonial.quote}</p>
+                <p className="text-gray-700 italic leading-relaxed">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>
@@ -126,11 +124,11 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-teal-600 text-white shadow-inner">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Learning?</h2>
-          <p className="text-xl mb-8">Join thousands of students who are already learning with us</p>
-          <Link to="/signup" className="btn bg-white text-primary hover:bg-gray-100 text-lg">
+          <h2 className="text-4xl font-bold mb-4">Ready to Start Learning?</h2>
+          <p className="text-xl mb-8 text-teal-100 opacity-90">Join thousands of students who are already learning with us</p>
+          <Link to="/signup" className="bg-green-600 text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg">
             Get Started Today
           </Link>
         </div>

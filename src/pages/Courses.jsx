@@ -111,57 +111,72 @@ function Courses() {
   })
 
   return (
-    <div className="py-8">
+    <div className="py-16 font-sans antialiased bg-gray-50">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8">Explore Courses</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-800">Explore Our Courses</h1>
 
         {/* Search and Filters */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-12 p-6 bg-white rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
           {/* Search Bar */}
-          <input
-            type="text"
-            placeholder="Search courses..."
-            className="input"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="md:col-span-2">
+            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-2">Search Courses</label>
+            <input
+              type="text"
+              id="search"
+              placeholder="e.g., Web Development, Data Science..."
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-colors duration-200 input-placeholder-gray-400"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
 
           {/* Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
             {/* Category Filter */}
-            <select
-              className="input"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
+            <div>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+              <select
+                id="category"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-colors duration-200 bg-white appearance-none pr-8"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                {categories.map(category => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+            </div>
 
             {/* Difficulty Filter */}
-            <select
-              className="input"
-              value={selectedDifficulty}
-              onChange={(e) => setSelectedDifficulty(e.target.value)}
-            >
-              {difficulties.map(difficulty => (
-                <option key={difficulty} value={difficulty}>{difficulty}</option>
-              ))}
-            </select>
+            <div>
+              <label htmlFor="difficulty" className="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
+              <select
+                id="difficulty"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-colors duration-200 bg-white appearance-none pr-8"
+                value={selectedDifficulty}
+                onChange={(e) => setSelectedDifficulty(e.target.value)}
+              >
+                {difficulties.map(difficulty => (
+                  <option key={difficulty} value={difficulty}>{difficulty}</option>
+                ))}
+              </select>
+            </div>
 
             {/* Duration Filter */}
-            <select
-              className="input"
-              value={selectedDuration}
-              onChange={(e) => setSelectedDuration(e.target.value)}
-            >
-              {durations.map(duration => (
-                <option key={duration} value={duration}>{duration}</option>
-              ))}
-            </select>
+            <div className="md:col-span-1">
+              <label htmlFor="duration" className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
+              <select
+                id="duration"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-colors duration-200 bg-white appearance-none pr-8"
+                value={selectedDuration}
+                onChange={(e) => setSelectedDuration(e.target.value)}
+              >
+                {durations.map(duration => (
+                  <option key={duration} value={duration}>{duration}</option>
+                ))}
+              </select>
+            </div>
           </div>
-        </div>
 
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -172,14 +187,14 @@ function Courses() {
 
         {/* Empty State */}
         {filteredCourses.length === 0 && (
-          <div className="text-center py-12">
-            <h3 className="text-xl font-semibold mb-2">No courses found</h3>
-            <p className="text-textMuted">Try adjusting your search or filters</p>
+          <div className="text-center py-20 bg-white rounded-xl shadow-lg mt-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-700">No courses found</h3>
+            <p className="text-gray-500 text-lg">Try adjusting your search or filters</p>
           </div>
         )}
 
         {/* Pagination (to be implemented) */}
-        <div className="mt-8 flex justify-center">
+        <div className="mt-12 flex justify-center">
           {/* Pagination components will go here */}
         </div>
       </div>
